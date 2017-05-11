@@ -24,11 +24,12 @@ namespace TagDefinedFileParser
             }
             Console.WriteLine("Press a key to continue");
             Console.ReadLine();
-
+            var processedLines = new List<WireBO>();
             Parallel.For(0, AllLines.Length, x =>
             {
-                ProcessLine(AllLines[x]);
+                processedLines.Add(ProcessLine(AllLines[x]));
             });
+
         }
 
         private static List<string> GetAllTagsWithValue(string v)
@@ -43,24 +44,33 @@ namespace TagDefinedFileParser
             return tags;
         }
 
-        private static void ProcessLine(string l)
+        private static WireBO ProcessLine(string l)
         {
             var tags = GetAllTagsWithValue(l);
+            var line = new WireBO();
 
             var wireType = typeof(WireBO);
             var classAttributes = Attribute.GetCustomAttributes(wireType);
 
             foreach (var property in wireType.GetProperties())
             {
-                var propertyAttributes = Attribute.GetCustomAttributes(property);
+                var propertyAttribute = property.GetCustomAttributes(false);
 
+                var tn = ((FedWireTagNumberAttribute)propertyAttribute.FirstOrDefault()).TagNumber;
+                var elt = ((FedWireTagNumberAttribute)propertyAttribute.FirstOrDefault()).ElementNumber;
 
+                // go get the data
+                var tag = tags.FirstOrDefault(t => t.StartsWith("{"+tn+"}"));
+
+                if (!(tag == null))
+                {
+                    var tagData = tag.Split('}')[1];
+
+                    property.SetValue(line, tagData); 
+                }
             }
 
-
-
-            // parse this line and 
-
+            return line;
         }
     }
 }

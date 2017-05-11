@@ -2,18 +2,18 @@
 
 namespace FedWireParser
 {
-    [AttributeUsage(AttributeTargets.Field)]
+    [AttributeUsage(AttributeTargets.Property)]
 
-    internal sealed class FedWireTagNumberAttribute : Attribute
+    public class FedWireTagNumberAttribute : Attribute
     {
-        private int tagNumber;
-        private int elementNumber;
+        public int TagNumber;
+        public int ElementNumber;
 
        
         public FedWireTagNumberAttribute(int tag, int element)
         {
-            this.tagNumber = tag;
-            this.elementNumber = element;
+            this.TagNumber = tag;
+            this.ElementNumber = element;
         }
     }
 }
