@@ -13,23 +13,13 @@ namespace TagDefinedFileParser
     {
         static void Main(string[] args)
         {
-            var MAX = (int)Math.Floor((double)(Int32.MaxValue / 5000));
-            // read the file in
-            var AllLines = new string[MAX]; //only allocate memory here
+            var AllLines = new string[5000]; //only allocate memory here
             AllLines = File.ReadAllLines(@"C:\Projects\Data\wire.txt");
-            var tags = GetAllTagsWithValue(AllLines[0]);
-            foreach (var item in tags)
-            {
-                Console.WriteLine(item);
-            }
-            Console.WriteLine("Press a key to continue");
-            Console.ReadLine();
             var processedLines = new List<WireBO>();
             Parallel.For(0, AllLines.Length, x =>
             {
                 processedLines.Add(ProcessLine(AllLines[x]));
             });
-
         }
 
         private static List<string> GetAllTagsWithValue(string v)
@@ -65,7 +55,6 @@ namespace TagDefinedFileParser
                 if (!(tag == null))
                 {
                     var tagData = tag.Split('}')[1];
-
                     property.SetValue(line, tagData); 
                 }
             }

@@ -48,6 +48,11 @@
   <ItemGroup>
     <None Include="154681744-Fedwire-Funds-Format-Reference-Guide.pdf" />
     <None Include="App.config" />
+    <None Include="Notice_of_assessment_2016_04_05_00_26_51_34824.pdf" />
+    <None Include="Notice_of_assessment_2017_03_16_20_55_15_823687.pdf" />
+    <None Include="Proof-Income-2014.pdf" />
+    <None Include="Proof-Income-2015.pdf" />
+    <None Include="Proof-Income-2016.pdf" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\FedWireParser\FedWireParser.csproj">
