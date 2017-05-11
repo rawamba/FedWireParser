@@ -6,12 +6,14 @@ namespace FedWireParser
 
     internal sealed class FedWireTagNumberAttribute : Attribute
     {
-        public readonly int tagNumber;
+        private int tagNumber;
+        private int elementNumber;
 
-        public FedWireTagNumberAttribute(int number)
+       
+        public FedWireTagNumberAttribute(int tag, int element)
         {
-            this.tagNumber = number;
+            this.tagNumber = tag;
+            this.elementNumber = element;
         }
-
     }
 }

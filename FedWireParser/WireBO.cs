@@ -8,107 +8,139 @@ namespace FedWireParser
 {
     public class WireBO
     {
+        //SenderSuppliedInformation1500
+        [FedWireTagNumber(1500,0)]
+        public string FormatVersion;
+        [FedWireTagNumber(1500,1)]
+        public string UserRequestCorrelation;
+        [FedWireTagNumber(1500,2)]
+        public string TestProductionCode;
+        [FedWireTagNumber(1500,3)]
+        public string MessageDuplicationCode;
 
-        [FedWireTagNumber(1500)]
-        public SenderSuppliedInformation SenderSuppliedInformation1500 = new SenderSuppliedInformation();
+        //TypeSubtype1510
+        [FedWireTagNumber(1510,0)]
+        public string TypeCode;
+        [FedWireTagNumber(1510, 1)]
+        public string SubTypeCode;
 
-        [FedWireTagNumber(1510)]
-        public TypeSubtype TypeSubtype1510 = new TypeSubtype();
+        //InputMessageAccountabilityDataIMAD1520
+        [FedWireTagNumber(1520,0)]
+        public string InputCycleDate;
+        [FedWireTagNumber(1520, 1)]
+        public string InputSource;
+        [FedWireTagNumber(1520, 2)]
+        public string InputSequenceNumber;
 
-        [FedWireTagNumber(1520)]
-        public InputMessageAccountabilityDataIMAD InputMessageAccountabilityDataIMAD1520 = new InputMessageAccountabilityDataIMAD();
+        //Amount2000
+        [FedWireTagNumber(2000,0)]
+        public decimal Amount2000;
 
-        [FedWireTagNumber(2000)]
-        public string Amount2000= string.Empty;
 
-        [FedWireTagNumber(3100)]
-        public SenderDI SenderDI3100 = new SenderDI();
+        //SenderDI3100
+        [FedWireTagNumber(3100,0)]
+        public string SenderABANumber;
+        [FedWireTagNumber(3100, 1)]
+        public string SenderShortName;
 
-        [FedWireTagNumber(3400)]
-        public ReceiverDI ReceiverDI3400= new ReceiverDI();
+        //ReceiverDI3400
+        [FedWireTagNumber(3400,0)]
+        public string ReceiverABANumber;
+        [FedWireTagNumber(3400, 1)]
+        public string ReceiverShortName;
 
-        [FedWireTagNumber(3600)]
-        public BusinessFunctionCode BusinessFunctionCode3600 = new BusinessFunctionCode();
+        //BusinessFunctionCode3600
+        [FedWireTagNumber(3600,0)]
+        public string BusunctionCode;
+        [FedWireTagNumber(3600, 1)]
+        public string TransactionTypeCode;
 
-        [FedWireTagNumber(3320)]
+
+        //SenderReference3320
+        [FedWireTagNumber(3320,0)]
         public string SenderReference3320 = string.Empty;
 
-        [FedWireTagNumber(3500)]
+        //PreviousMessageIdentifier3500
+        [FedWireTagNumber(3500,0)]
         public string PreviousMessageIdentifier3500 = string.Empty;
 
-        [FedWireTagNumber(3610)]
-        public LocalInstrument LocalInstrument3610 = new LocalInstrument();
+        //LocalInstrument3610
+        [FedWireTagNumber(3610,0)]
+        public string LocalInstrumentCode;
+        [FedWireTagNumber(3610, 1)]
+        public string ProprietaryCode;
 
-        [FedWireTagNumber(3620)]
-        public PaymentNotification PaymentNotification3620 = new PaymentNotification();
+        //PaymentNotification3620
+        [FedWireTagNumber(3620,0)]
+        public string PaymentNotificationIndicator;
+        [FedWireTagNumber(3620, 1)]
+        public string ContactNotificationElectronicAddress;
+        [FedWireTagNumber(3620, 2)]
+        public string ContactName;
+        [FedWireTagNumber(3620, 3)]
+        public string ContactPhoneNumber;
+        [FedWireTagNumber(3620,4)]
+        public string ContactMobileNumber;
+        [FedWireTagNumber(3620, 5)]
+        public string ContactFaxNumber;
+        [FedWireTagNumber(3620, 6)]
+        public string EndToEndIdentification;
 
+        //Charges3700
         [FedWireTagNumber(3700)]
         public Charges Charges3700 = new Charges();
 
+        //InstructedAmount3710
         [FedWireTagNumber(3710)]
         public InstructedAmount InstructedAmount3710 = new InstructedAmount();
 
+        //ExchangeRate3720
         [FedWireTagNumber(3720)]
         public string ExchangeRate3720 = string.Empty;
 
+        //IntermediaryFI4000
         [FedWireTagNumber(4000)]
         public IDCodeIdentifierNameAddress IntermediaryFI4000 = new IDCodeIdentifierNameAddress();
 
+        //BeneficiaryFI4100
         [FedWireTagNumber(4100)]
         public IDCodeIdentifierNameAddress BeneficiaryFI4100 = new IDCodeIdentifierNameAddress();
 
+        //Beneficiary4200
         [FedWireTagNumber(4200)]
         public IDCodeIdentifierNameAddress Beneficiary4200 = new IDCodeIdentifierNameAddress();
 
+        //ReferenceForBeneficiary4320
         [FedWireTagNumber(4320)]
         public string ReferenceForBeneficiary4320 = string.Empty;
 
+        //AccountDebitedInDrawdown4400
         [FedWireTagNumber(4400)]
         public IDCodeIdentifierNameAddress AccountDebitedInDrawdown4400 = new IDCodeIdentifierNameAddress();
 
+        //Originator5000
         [FedWireTagNumber(5000)]
         public IDCodeIdentifierNameAddress Originator5000 = new IDCodeIdentifierNameAddress();
 
+        //OriginatorOptionF5010
         [FedWireTagNumber(5010)]
         public OriginatorOptionF OriginatorOptionF5010 = new OriginatorOptionF();
 
+        //OriginatorFI5100
         [FedWireTagNumber(5100)]
         public IDCodeIdentifierNameAddress OriginatorFI5100 = new IDCodeIdentifierNameAddress();
 
+        //InstructingFI5200
         [FedWireTagNumber(5200)]
         public IDCodeIdentifierNameAddress InstructingFI5200 = new IDCodeIdentifierNameAddress();
 
+        //AccountCreditedInDrawdown5400
         [FedWireTagNumber(5400)]
         public string AccountCreditedInDrawdown5400 = string.Empty;
 
+        //OriginatorToBeneficiaryInformation6000
         [FedWireTagNumber(6000)]
         public OriginatorToBeneficiaryInformation OriginatorToBeneficiaryInformation6000 = new OriginatorToBeneficiaryInformation();
-
-        //public Tuple<string, SenderSuppliedInformation> SenderSuppliedInformation1500;
-        //public Tuple<string, TypeSubtype> TypeSubtype1510;
-        //public Tuple<string, InputMessageAccountabilityDataIMAD> InputMessageAccountabilityDataIMAD1520;
-        //public Tuple<string, string> Amount2000;
-        //public Tuple<string, SenderDI> SenderDI3100;
-        //public Tuple<string, ReceiverDI> ReceiverDI3400;
-        //public Tuple<string, BusinessFunctionCode> BusinessFunctionCode3600;
-        //public Tuple<string, string> SenderReference3320;
-        //public Tuple<string, string> PreviousMessageIdentifier3500;
-        //public Tuple<string, LocalInstrument> LocalInstrument3610;
-        //public Tuple<string, PaymentNotification> PaymentNotification3620;
-        //public Tuple<string, Charges> Charges3700;
-        //public Tuple<string, InstructedAmount> InstructedAmount3710;
-        //public Tuple<string, string> ExchangeRate3720;
-        //public Tuple<string, IDCodeIdentifierNameAddress> IntermediaryFI4000;
-        //public Tuple<string, IDCodeIdentifierNameAddress> BeneficiaryFI4100;
-        //public Tuple<string, IDCodeIdentifierNameAddress> Beneficiary4200;
-        //public Tuple<string, string> ReferenceForBeneficiary4320;
-        //public Tuple<string, IDCodeIdentifierNameAddress> AccountDebitedInDrawdown4400;
-        //public Tuple<string, IDCodeIdentifierNameAddress> Originator5000;
-        //public Tuple<string, OriginatorOptionF> OriginatorOptionF5010;
-        //public Tuple<string, IDCodeIdentifierNameAddress> OriginatorFI5100;
-        //public Tuple<string, IDCodeIdentifierNameAddress>  InstructingFI5200;
-        //public Tuple<string, string> AccountCreditedInDrawdown5400;
-        //public Tuple<string, OriginatorToBeneficiaryInformation> OriginatorToBeneficiaryInformation6000;
 
     }
 }
