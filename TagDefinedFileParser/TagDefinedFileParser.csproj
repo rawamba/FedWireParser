@@ -49,5 +49,11 @@
     <None Include="154681744-Fedwire-Funds-Format-Reference-Guide.pdf" />
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\FedWireParser\FedWireParser.csproj">
+      <Project>{af030a54-ef93-4f70-88ec-417fde427b96}</Project>
+      <Name>FedWireParser</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

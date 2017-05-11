@@ -1,4 +1,5 @@
-﻿using System;
+﻿using FedWireParser;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -16,7 +17,7 @@ namespace TagDefinedFileParser
             // read the file in
             var AllLines = new string[MAX]; //only allocate memory here
             AllLines = File.ReadAllLines(@"C:\Projects\Data\wire.txt");
-            var tags = GetAllTags(AllLines[0]);
+            var tags = GetAllTagsWithValue(AllLines[0]);
             foreach (var item in tags)
             {
                 Console.WriteLine(item);
@@ -30,7 +31,7 @@ namespace TagDefinedFileParser
             });
         }
 
-        private static List<string> GetAllTags(string v)
+        private static List<string> GetAllTagsWithValue(string v)
         {
             var pattern = @"{\d\d\d\d}([^{]*)";
             var matches = Regex.Matches(v, pattern);
@@ -42,8 +43,22 @@ namespace TagDefinedFileParser
             return tags;
         }
 
-        private static void ProcessLine(string v)
+        private static void ProcessLine(string l)
         {
+            var tags = GetAllTagsWithValue(l);
+
+            var wireType = typeof(WireBO);
+            var classAttributes = Attribute.GetCustomAttributes(wireType);
+
+            foreach (var property in wireType.GetProperties())
+            {
+                var propertyAttributes = Attribute.GetCustomAttributes(property);
+
+
+            }
+
+
+
             // parse this line and 
 
         }

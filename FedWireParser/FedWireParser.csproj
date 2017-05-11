@@ -42,6 +42,7 @@
   <ItemGroup>
     <Compile Include="BusinessFunctionCode.cs" />
     <Compile Include="Charges.cs" />
+    <Compile Include="FedWireTagNumberAttribute.cs" />
     <Compile Include="IDCodeIdentifierNameAddress.cs" />
     <Compile Include="InputMessageAccountabilityDataIMAD.cs" />
     <Compile Include="InstructedAmount.cs" />
